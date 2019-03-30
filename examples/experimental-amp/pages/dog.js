@@ -1,22 +1,23 @@
 import Head from 'next/head'
 import { useAmp } from 'next/amp'
 import Byline from '../components/Byline'
+import Layout from '../components/Layout'
 
 export default () => {
   const isAmp = useAmp()
+  const title = `The Dog`
+  const version = `${isAmp ? 'AMP' : 'Non-AMP'} Version`
+  const author = 'Meow Meow Fuzzyface'
 
   return (
-    <div>
+    <Layout>
       <Head>
-        <title>The Dog</title>
+        <title>{title}</title>
       </Head>
-      <h1>The Dog</h1>
-      <Byline author='Meow Meow Fuzzyface' />
-      <p>
-        <a href={isAmp ? '/dog' : '/dog?amp=1'}>
-          {isAmp ? 'View Non-AMP' : 'View AMP'} Version
-        </a>
-      </p>
+      <h1>{title}</h1>
+      <h2>{version}</h2>
+      <Byline author={author} />
+      <h3>Arf</h3>
       <p className='caption'>Woooooooooooof</p>
       <p>
         Wafer donut candy soufflé{' '}
@@ -85,6 +86,6 @@ export default () => {
         dragée ice cream biscuit. Pie candy canes muffin candy canes ice cream
         tiramisu.
       </p>
-    </div>
+    </Layout>
   )
 }

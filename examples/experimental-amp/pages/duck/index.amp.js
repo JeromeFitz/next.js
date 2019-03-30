@@ -4,18 +4,26 @@ import Byline from '../../components/Byline'
 
 export default () => {
   const isAmp = useAmp()
+  const title = `The Duck`
+  const version = `${isAmp ? 'AMP' : 'Non-AMP'} Version`
+  const author = 'Quack Quack Duckyface'
 
   return (
     <div>
       <Head>
-        <title>The Duck</title>
+        <title>{title}</title>
       </Head>
-      <h1>The Duck</h1>
-      <Byline author='Meow Meow Fuzzyface' />
+      <h1>{title}</h1>
+      <h2>{version}</h2>
+      <Byline author={author} />
       <p>
         <a href={isAmp ? '/duck' : '/duck?amp=1'}>
           {isAmp ? 'View Non-AMP' : 'View AMP'} Version
         </a>
+      </p>
+      <p>
+        <a href={'/'}>Back to Index</a> |{' '}
+        <a href={'/?amp=1'}>Back to Index (AMP)</a>
       </p>
       <p className='caption'>Woooooooooooof</p>
       <p>
